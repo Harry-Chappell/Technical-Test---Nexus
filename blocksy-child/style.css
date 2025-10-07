@@ -84,3 +84,26 @@ nav#header-menu-1 ul.sub-menu>li>a {
     text-underline-offset: 5px;
     text-decoration-thickness: 2px;
 }
+
+
+
+
+/* glass effect on home hero */
+.glass {
+    border-radius: 75px;
+    overflow: hidden;
+    position: absolute;
+    z-index: 0;
+    rotate: 45deg;
+    height: 1000px;
+    top: 50%;
+    translate: -50% -50%;
+}
+.glass:after {
+    content: "" !important;
+    background: rgba(255, 255, 255, 0.1);
+    width: inherit;
+    aspect-ratio: 1;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
