@@ -1,7 +1,35 @@
 /**
  * Theme Name: Blocksy Child
  * Description: Blocksy Child theme
- * Author: Creative Themes
+ * Author: Harry Chappell
+ * Author URI: https://harrych.app/ell
  * Template: blocksy
  * Text Domain: blocksy
  */
+
+
+/* Body Max Width */
+@media screen and (min-width: 1700px) {
+    body {
+        max-width: 1600px;
+        margin: auto !important;
+        box-shadow: 0 0 0 9999px color-mix(in srgb, var(--theme-palette-color-4) 5%, #fff0);
+    }
+}
+
+
+
+/* Theme side margin variable */
+:root {
+    --theme-side-margin: calc((100vw - var(--theme-container-width)) / 2 - 30px);
+}
+@media screen and (min-width: 1433px) {
+    :root {
+        --theme-side-margin: calc((100vw - var(--theme-normal-container-max-width)) / 2 - 20px);
+    }
+}
+@media screen and (min-width: 1700px) {
+    :root {
+        --theme-side-margin: calc((1600px - var(--theme-normal-container-max-width)) / 2 - 10px);
+    }
+}
