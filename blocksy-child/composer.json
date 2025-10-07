@@ -1,0 +1,11 @@
+{
+    "name": "coffee-design/blocksy-child",
+    "description": "Child theme for Blocksy with PSR-4 autoloading",
+    "type": "wordpress-theme",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "BlocksyChild\\\\": "src/"
+        }
+    }
+}

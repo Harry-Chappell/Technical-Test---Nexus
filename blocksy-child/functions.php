@@ -34,3 +34,40 @@ function remove_admin_bar() {
         show_admin_bar( false );
     }
 }
+
+
+
+
+// PSR-4 autoloading: prefer composer's autoload if available
+$composer_autoload = __DIR__ . '/vendor/autoload.php';
+if ( file_exists( $composer_autoload ) ) {
+    require_once $composer_autoload;
+}
+
+// Fallback: provide a minimal autoloader for the BlocksyChild namespace if composer isn't installed.
+spl_autoload_register( function ( $class ) {
+    $prefix = 'BlocksyChild\\';
+    $base_dir = __DIR__ . '/src/';
+
+    // does the class use the namespace prefix?
+    $len = strlen( $prefix );
+    if ( strncmp( $prefix, $class, $len ) !== 0 ) {
+        return;
+    }
+
+    // get the relative class name
+    $relative_class = substr( $class, $len );
+
+    // replace namespace separators with directory separators, append with .php
+    $file = $base_dir . str_replace( '\\', '/', $relative_class ) . '.php';
+
+    if ( file_exists( $file ) ) {
+        require $file;
+    }
+} );
+
+// Instantiate and register the page color overrides class if it exists
+if ( class_exists( '\\BlocksyChild\\PageColorOverrides' ) ) {
+    $overrides = new \BlocksyChild\PageColorOverrides();
+    add_action( 'wp_head', [ $overrides, 'output' ], 100 );
+}
