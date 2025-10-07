@@ -19,6 +19,10 @@
 
 
 
+h1, h2, h3, h4, h5, h6, button {
+    text-wrap: balance
+}
+
 /* Theme side margin variable */
 :root {
     --theme-side-margin: calc((100vw - var(--theme-container-width)) / 2 - 30px);
