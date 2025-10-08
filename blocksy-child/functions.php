@@ -71,3 +71,7 @@ if ( class_exists( '\\BlocksyChild\\PageColorOverrides' ) ) {
     $overrides = new \BlocksyChild\PageColorOverrides();
     add_action( 'wp_head', [ $overrides, 'output' ], 100 );
 }
+
+
+
+require_once __DIR__ . '/components/functions-components.php';
