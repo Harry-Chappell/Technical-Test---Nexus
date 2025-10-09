@@ -102,21 +102,26 @@ nav#header-menu-1 ul.sub-menu>li>a {
     height: 1000px;
     top: 50%;
     translate: -50% -50%;
-}
-.glass:after {
-    content: "" !important;
-    background: rgba(255, 255, 255, 0.1);
-    width: inherit;
-    aspect-ratio: 1;
-    backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+
+    &:after {
+        content: "" !important;
+        background: rgba(255, 255, 255, 0.1);
+        width: inherit;
+        aspect-ratio: 1;
+        backdrop-filter: blur(8px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
 }
 
 
+
+
+/* Side Gradients */
 div.side-gradients {
     position: relative;
 }
-div.stk-block.side-gradients:before, div.side-gradients:after {
+div.stk-block.side-gradients:before, 
+div.side-gradients:after {
     content: "" !important;
     background: linear-gradient(-90deg, var(--theme-palette-color-1) 10%, rgba(0, 0, 0, 0) 75%) !important;
     width: 200px;
@@ -128,4 +133,33 @@ div.stk-block.side-gradients:before, div.side-gradients:after {
 div.side-gradients:after {
     background: linear-gradient(90deg, var(--theme-palette-color-1) 10%, rgba(0, 0, 0, 0) 75%) !important;
     inset: 0 auto 0 0;
+}
+
+
+
+
+/* Form styles */
+.home form.hcdigital-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    font-weight: 800;
+    
+    label {
+        margin: 0;
+    }
+
+    br {
+        display: none;
+    }
+
+    button[type=submit] {
+        background-color: var(--theme-palette-color-8);
+        color: var(--theme-palette-color-1);
+        font-weight: 700;
+
+        &:hover {
+            background-color: var(--theme-palette-color-6);
+        }
+    }
 }
