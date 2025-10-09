@@ -125,6 +125,7 @@ div.side-gradients:after {
     content: "" !important;
     background: linear-gradient(-90deg, var(--theme-palette-color-1) 10%, rgba(0, 0, 0, 0) 75%) !important;
     width: 200px;
+    max-width: calc((100vw - var(--theme-container-width)) / 2);
     position: absolute;
     z-index: 2;
     inset: 0 0 0 auto;
