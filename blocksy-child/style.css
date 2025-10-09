@@ -188,3 +188,57 @@ div.side-gradients:after {
         }
     }
 }
+
+
+
+
+/* Footer menus */
+#footer {
+    #footer-logo {
+        width: 70px;;
+    }
+    #get-in-touch {
+        font-weight: bolder;
+    }
+    #get-in-touch,
+    #phone-link,
+    #open-times {
+        color: var(--theme-palette-color-8);
+    }
+    #phone-link:hover {
+        text-decoration: underline;
+    }
+
+    .footer-menu {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+
+        li {
+            margin: 0;
+        }
+
+        a {
+            color: var(--theme-palette-color-8);
+            font-weight: 700;
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    nav:not(:last-child) ul.footer-menu {
+        margin-bottom: 65px;
+    }
+
+    .copyright {
+        margin: 2em 0 0;
+        color: var(--theme-palette-color-8);
+        opacity: 0.5;
+    }
+}

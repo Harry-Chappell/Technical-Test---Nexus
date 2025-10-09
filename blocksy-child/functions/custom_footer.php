@@ -6,7 +6,7 @@ function custom_footer_shortcode() {
     require_once get_stylesheet_directory() . '/functions/render-menu.php';
     require_once get_stylesheet_directory() . '/functions/render-socials.php';
 
-    
+
     ob_start();
     ?>
 
@@ -51,11 +51,11 @@ function custom_footer_shortcode() {
     ?>
 
 
-    <div class="row">
-        <div class="col">
-            <img src="https://harrych.app/ell/nexus/wp-content/uploads/2025/10/Nexus-logo-Over-dark.svg" alt="Nexus Logo">
-            <a href="#" id="get-in-touch">Get in Touch</a>
-            <a id="phone-link" href="tel:01912020747">0191 20 20 747</a>
+    <div class="row mt-5">
+        <div class="col d-flex flex-column gap-1">
+            <img id="footer-logo" src="https://harrych.app/ell/nexus/wp-content/uploads/2025/10/Nexus-logo-Over-dark.svg" alt="Nexus Logo" class="mb-5">
+            <a id="get-in-touch" href="#" class="mb-2">Get in Touch</a>
+            <a id="phone-link" href="tel:01912020747" class="fs-2">0191 20 20 747</a>
             <span id="open-times" class="small">09:00 to 17:00 - Mon to Fri</span>
         </div>
 
@@ -71,25 +71,27 @@ function custom_footer_shortcode() {
             <?php render_menu_by_name('Contact Nexus'); ?>
         </div>
     </div>
-    <div id="socials">
+    <div class="row d-flex flex-column mb-0">
+        <div id="socials" class="d-flex">
 
-        <?php
-    
-        // Define networks to exclude
-        $shortcode_atts = array( 'excludes' => array( 'phone', 'email' ) );
+            <?php
         
-        // Determine social keys: prefer Blocksy's full list when available
-        if ( function_exists( 'blocksy_get_social_networks_list' ) ) {
-            $networks = blocksy_get_social_networks_list();
-            $social_keys = is_array( $networks ) ? array_keys( $networks ) : array();
-        }
+            // Define networks to exclude
+            $shortcode_atts = array( 'excludes' => array( 'phone', 'email' ) );
+            
+            // Determine social keys: prefer Blocksy's full list when available
+            if ( function_exists( 'blocksy_get_social_networks_list' ) ) {
+                $networks = blocksy_get_social_networks_list();
+                $social_keys = is_array( $networks ) ? array_keys( $networks ) : array();
+            }
 
-        // Render socials using the reusable renderer. Allows passing 'excludes' via shortcode attributes.
-        // Shortcode attributes can be overridden by external code before output if needed.
-        echo blocksy_render_social_links( array( 'excludes' => $shortcode_atts['excludes'] ) );
-        ?>
+            // Render socials using the reusable renderer. Allows passing 'excludes' via shortcode attributes.
+            // Shortcode attributes can be overridden by external code before output if needed.
+            echo blocksy_render_social_links( array( 'excludes' => $shortcode_atts['excludes'] ) );
+            ?>
+        </div>
 
-
+        <p class="copyright">© Nexus Tyne and Wear <?php echo date('Y'); ?>. All rights reserved.</p>
     </div>
 
     <?php
