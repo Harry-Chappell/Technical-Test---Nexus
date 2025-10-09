@@ -1,6 +1,12 @@
 <?php
 
 function custom_footer_shortcode() {
+    // Load helper that fetches social URLs and renderer
+    require_once get_stylesheet_directory() . '/functions/blocksy-social.php';
+    require_once get_stylesheet_directory() . '/functions/render-menu.php';
+    require_once get_stylesheet_directory() . '/functions/render-socials.php';
+
+    
     ob_start();
     ?>
 
@@ -46,17 +52,28 @@ function custom_footer_shortcode() {
 
 
     <div class="row">
-        <div class="col"></div>
-        <div class="col"></div>
-        <div class="col"></div>
-        <div class="col"></div>
+        <div class="col">
+            <img src="https://harrych.app/ell/nexus/wp-content/uploads/2025/10/Nexus-logo-Over-dark.svg" alt="Nexus Logo">
+            <a href="#" id="get-in-touch">Get in Touch</a>
+            <a id="phone-link" href="tel:01912020747">0191 20 20 747</a>
+            <span id="open-times" class="small">09:00 to 17:00 - Mon to Fri</span>
+        </div>
+
+        <div class="col">
+            <?php render_menu_by_name('About'); ?>
+            <?php render_menu_by_name('Partnerships'); ?>
+        </div>
+        <div class="col">
+            <?php render_menu_by_name('Careers'); ?>
+        </div>
+        <div class="col">
+            <?php render_menu_by_name('News and Media Hub'); ?>
+            <?php render_menu_by_name('Contact Nexus'); ?>
+        </div>
     </div>
-    <div class="row" id="socials">
-        
+    <div id="socials">
+
         <?php
-        // Load helper that fetches social URLs and renderer
-        require_once get_stylesheet_directory() . '/functions/blocksy-social.php';
-        require_once get_stylesheet_directory() . '/functions/render-socials.php';
     
         // Define networks to exclude
         $shortcode_atts = array( 'excludes' => array( 'phone', 'email' ) );
