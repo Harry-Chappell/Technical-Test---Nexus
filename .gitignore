@@ -1,1 +1,8 @@
+node_modules/
+/.pnp/
+
+# Ignore built CSS
+/blocksy-child/dist/
+
+.vscode/sftp.json
 .vscode/sftp.json

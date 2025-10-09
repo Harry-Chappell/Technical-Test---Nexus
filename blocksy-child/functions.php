@@ -6,7 +6,24 @@ add_action( 'wp_enqueue_scripts', function () {
     wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
 } );
 add_action( 'wp_enqueue_scripts', function () {
-    wp_enqueue_style( 'child-style', get_stylesheet_uri() );
+    // Enqueue Bootstrap from CDN (change version here to update)
+    $bootstrap_version = '5.3.3';
+    $bootstrap_css_cdn = "https://cdn.jsdelivr.net/npm/bootstrap@{$bootstrap_version}/dist/css/bootstrap.min.css";
+    $bootstrap_js_cdn = "https://cdn.jsdelivr.net/npm/bootstrap@{$bootstrap_version}/dist/js/bootstrap.bundle.min.js";
+
+    wp_enqueue_style( 'bootstrap-css', $bootstrap_css_cdn, array(), $bootstrap_version );
+
+    // prefer compiled child CSS in /dist/style.css when available; load after Bootstrap so it can override
+    $compiled = get_stylesheet_directory() . '/dist/style.css';
+    if ( file_exists( $compiled ) ) {
+        wp_enqueue_style( 'child-style', get_stylesheet_directory_uri() . '/dist/style.css', array( 'parent-style', 'bootstrap-css' ), filemtime( $compiled ) );
+    } else {
+        // fallback to the theme's style.css (useful before running the build step)
+        wp_enqueue_style( 'child-style', get_stylesheet_uri(), array( 'parent-style', 'bootstrap-css' ) );
+    }
+
+    // Enqueue Bootstrap JS bundle (includes Popper). Load in footer.
+    wp_enqueue_script( 'bootstrap-js', $bootstrap_js_cdn, array(), $bootstrap_version, true );
     //wp_register_style('legacyCss',  get_stylesheet_directory_uri() . '/legacy/style.css', array(), null, 'all');
     //wp_enqueue_style('legacyCss');
 } );
