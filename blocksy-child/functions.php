@@ -83,7 +83,7 @@ spl_autoload_register( function ( $class ) {
     }
 } );
 
-// Instantiate and register the page color overrides class if it exists
+// Instantiate and register the PageColorOverrides class if it exists
 if ( class_exists( '\\BlocksyChild\\PageColorOverrides' ) ) {
     $overrides = new \BlocksyChild\PageColorOverrides();
     add_action( 'wp_head', [ $overrides, 'output' ], 100 );
@@ -92,3 +92,4 @@ if ( class_exists( '\\BlocksyChild\\PageColorOverrides' ) ) {
 
 
 require_once __DIR__ . '/components/functions-components.php';
+require_once __DIR__ . '/functions/custom_footer.php';
