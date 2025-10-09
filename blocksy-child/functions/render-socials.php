@@ -47,7 +47,7 @@ if ( ! function_exists( 'blocksy_render_social_links' ) ) {
             // Icon: prefer child theme assets; fall back to Blocksy metadata icon when asset missing
             $icon_markup = '';
             if ( function_exists( 'inline_svg_from_assets' ) ) {
-                $icon_markup = inline_svg_from_assets( $key . '.svg', 'width:20px;height:20px;' );
+                $icon_markup = inline_svg_from_assets( $key . '.svg' );
             }
 
             if ( empty( trim( $icon_markup ) ) && function_exists( 'blocksy_get_social_metadata' ) ) {
