@@ -94,18 +94,22 @@ nav#header-menu-1 ul.sub-menu>li>a {
 
 /* glass effect on home hero */
 .glass {
-    border-radius: 75px;
+    border-radius: 50px;
     overflow: hidden;
     position: absolute;
     z-index: 0;
     rotate: 45deg;
     height: 1000px;
+    width: 1000px;
+    min-width: 1000px !important;
+    min-height: 1000px !important;
     top: 50%;
     translate: -50% -50%;
-
+    
     &:after {
         content: "" !important;
         background: rgba(255, 255, 255, 0.1);
+        height: inherit;
         width: inherit;
         aspect-ratio: 1;
         backdrop-filter: blur(8px);
@@ -113,7 +117,16 @@ nav#header-menu-1 ul.sub-menu>li>a {
     }
 }
 
-
+@media (max-width: 999px) {
+    .glass {
+        translate: -65% -50%;
+    }   
+}
+@media (max-width: 689px) {
+    .glass {
+        translate: -87.5% -50%;
+    }   
+}
 
 
 /* Side Gradients */
@@ -241,5 +254,16 @@ div.side-gradients:after {
         margin: 2em 0 0;
         color: var(--theme-palette-color-8);
         opacity: 0.5;
+    }
+}
+@media (max-width: 991px) {
+    #footer #menu-careers {
+        display: flex;
+        flex-flow: row wrap;
+        gap: 15px 0;
+        
+        &>li {
+            width: 50%
+        }
     }
 }

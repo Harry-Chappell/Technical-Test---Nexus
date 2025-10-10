@@ -52,23 +52,33 @@ function custom_footer_shortcode() {
 
 
     <div class="row mt-5">
-        <div class="col d-flex flex-column gap-1">
+        <div class="col-12 col-lg-3 d-flex flex-column gap-1 mb-5">
             <img id="footer-logo" src="https://harrych.app/ell/nexus/wp-content/uploads/2025/10/Nexus-logo-Over-dark.svg" alt="Nexus Logo" class="mb-5">
             <a id="get-in-touch" href="#" class="mb-2">Get in Touch</a>
             <a id="phone-link" href="tel:01912020747" class="fs-2">0191 20 20 747</a>
             <span id="open-times" class="small">09:00 to 17:00 - Mon to Fri</span>
         </div>
 
-        <div class="col">
-            <?php render_menu_by_name('About'); ?>
-            <?php render_menu_by_name('Partnerships'); ?>
+        <div class="col-12 col-lg-3 d-flex flex-row flex-lg-column gap-lg-1">
+            <div class="mb-5 col-6 col-lg-12">
+                <?php render_menu_by_name('About'); ?>
+            </div>
+            <div class="mb-5 col-6 col-lg-12">
+                <?php render_menu_by_name('Partnerships'); ?>
+            </div>
         </div>
-        <div class="col">
-            <?php render_menu_by_name('Careers'); ?>
+        <div class="col-12 col-lg-3 ">
+            <div class="mb-5">
+                <?php render_menu_by_name('Careers'); ?>
+            </div>
         </div>
-        <div class="col">
-            <?php render_menu_by_name('News and Media Hub'); ?>
-            <?php render_menu_by_name('Contact Nexus'); ?>
+        <div class="col-12 col-lg-3 ">
+            <div class="mb-5">
+                <?php render_menu_by_name('News and Media Hub'); ?>
+            </div>
+            <div class="mb-5">
+                <?php render_menu_by_name('Contact Nexus'); ?>
+            </div>
         </div>
     </div>
     <div class="row d-flex flex-column mb-0">

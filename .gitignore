@@ -5,3 +5,5 @@ node_modules/
 
 .vscode/sftp.json
 .vscode/sftp.json
+
+/blocksy-child/bootstrap-5.0.2-dist/
