@@ -267,3 +267,35 @@ div.side-gradients:after {
         }
     }
 }
+
+
+
+
+/* Graphics */
+[class*="graphic-"] {
+    position: relative;
+}
+div.stk-block[class*="graphic-"]:before,
+div.stk-block[class*="graphic-"]:after {
+    content: "" !important;
+    position: absolute;
+    z-index: 0;
+    pointer-events: none;
+}
+@media (min-width: 1000px) {
+    div.stk-block.graphic-1:before {
+        background: url(assets/graphic-1.svg) no-repeat center center !important;
+        background-size: contain !important;
+        height: 200px;
+        width: 360px;
+        inset: auto auto calc(100% - 190px) calc(100% - 200px);
+    }
+    
+    div.stk-block.graphic-2:after {
+        background: url(assets/graphic-2.svg) no-repeat top center !important;
+        background-size: contain !important;
+        height: 330px;
+        width: 840px;
+        inset: calc(100% - 140px) auto auto 80px;
+    }
+}
