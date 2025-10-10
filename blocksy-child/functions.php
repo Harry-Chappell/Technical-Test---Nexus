@@ -7,7 +7,7 @@ add_action( 'wp_enqueue_scripts', function () {
 } );
 add_action( 'wp_enqueue_scripts', function () {
     // Enqueue Bootstrap from CDN (change version here to update)
-    $bootstrap_version = '5.3.3';
+    $bootstrap_version = '5.0.2';
     $bootstrap_css_cdn = "https://cdn.jsdelivr.net/npm/bootstrap@{$bootstrap_version}/dist/css/bootstrap.min.css";
     $bootstrap_js_cdn = "https://cdn.jsdelivr.net/npm/bootstrap@{$bootstrap_version}/dist/js/bootstrap.bundle.min.js";
 
@@ -93,3 +93,5 @@ if ( class_exists( '\\BlocksyChild\\PageColorOverrides' ) ) {
 
 require_once __DIR__ . '/components/functions-components.php';
 require_once __DIR__ . '/functions/custom_footer.php';
+// Vacancies JSON generator
+require_once __DIR__ . '/functions/vacancies-json.php';
