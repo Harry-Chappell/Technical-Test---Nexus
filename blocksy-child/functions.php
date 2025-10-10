@@ -94,4 +94,9 @@ if ( class_exists( '\\BlocksyChild\\PageColorOverrides' ) ) {
 require_once __DIR__ . '/components/functions-components.php';
 require_once __DIR__ . '/functions/custom_footer.php';
 // Vacancies JSON generator
-require_once __DIR__ . '/functions/vacancies-json.php';
+require_once __DIR__ . '/functions/vacancies/vacancies-json.php';
+require_once __DIR__ . '/functions/vacancies/vacancies-load.php';
+require_once __DIR__ . '/functions/vacancies/vacancies-filters.php';
+require_once __DIR__ . '/functions/vacancies/vacancies-list.php';
+require_once __DIR__ . '/functions/vacancies/vacancies-list-count.php';
+require_once __DIR__ . '/functions/vacancies/vacancies-active-filters.php';
